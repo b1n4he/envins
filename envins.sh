@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-
-
 # 确保以 root 权限运行
 if [ "$EUID" -ne 0 ]; then
     echo "请以 root 权限运行此脚本 (sudo)"
@@ -63,6 +60,7 @@ function install_env() {
         curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose
     fi
+}
 
-
-install_env;;
+# 调用安装函数
+install_env 
