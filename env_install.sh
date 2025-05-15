@@ -41,6 +41,7 @@ install_package_manager() {
     local os=$(detect_os)
     
     if [[ "$os" == "macos" ]]; then
+        
         if ! command -v brew &> /dev/null; then
             info "Homebrew 未安装，正在安装..."
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || error "Homebrew 安装失败"
@@ -79,7 +80,6 @@ install_dependencies() {
             openssl \
             jq \
             lz4 \
-            clang \
             ncdu \
             unzip || error "依赖安装失败"
     elif [[ "$os" == "ubuntu" ]]; then
